@@ -1,0 +1,4 @@
+RewriteEngine on
+# Pour les requêtes ne commençant pas par /public 
+RewriteCond %{REQUEST_URI} !^/public
+RewriteRule (.*) public/index.php [L]
