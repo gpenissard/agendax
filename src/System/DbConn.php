@@ -12,7 +12,7 @@ class DbConn {
         $db   = $_ENV['DB_DATABASE'];
         $user = $_ENV['DB_USERNAME'];
         $pass = $_ENV['DB_PASSWORD'];
-        var_dump($host, $port, $db, $user, $pass);
+        //var_dump($host, $port, $db, $user, $pass);
         try {
             $this->dbConn = new \PDO(
                 "mysql:host=$host;port=$port;charset=utf8mb4;dbname=$db",
@@ -22,7 +22,7 @@ class DbConn {
         } catch (\PDOException $e) {
             exit($e->getMessage());
         }
-        var_dump($this->dbConn);
+        //var_dump($this->dbConn);
     }
 
     public function getConn()
