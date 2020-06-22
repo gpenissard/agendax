@@ -44,6 +44,9 @@ API testée avec l'extension Chrome [Postman](https://chrome.google.com/webstore
 
 ![](doc/Postman_creer_requete.png)
 ![](doc/Postman_requete_delete_event_4.png)
+![](doc/Postman_requete_get_event.png)
+![](doc/Postman_requete_get_event_1.png)
+![](doc/Postman_requete_post_event_data.png)
 
 ## .htaccess
 
