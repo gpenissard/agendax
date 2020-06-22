@@ -1,4 +1,7 @@
 <?php
+
+use Src\Model\Event;
+
 require 'bootstrap.php';
 
 $statement = <<<EOS
@@ -13,7 +16,7 @@ $statement = <<<EOS
     INSERT INTO agxevent
         (id, name, startdt, enddt)
     VALUES
-    (1, 'Classe P51', '2020-06-20 10:00:00', '2020-06-20 10:00:00'),
+    (1, 'Classe P51', '2020-06-20 10:00:00', '2020-06-20 11:00:00'),
     (2, 'Interview JSLabs', '2020-06-25 14:30:00', '2020-06-25 16:00:00');
 EOS;
 
@@ -25,3 +28,31 @@ try {
 } catch (\PDOException $e) {
     exit($e->getMessage());
 }
+
+$event = new Event($dbConn);
+
+// return all records
+$result = $event->findAll();
+var_dump($result);
+
+// return the record with id = 1
+$result = $event->find(1);
+var_dump($result);
+
+// insert a new record
+$result = $event->insert([
+    'name' => 'Concert',
+    'startdt' => '2021-01-10 10:20:00',
+    'enddt' => '2021-01-10 11:00:00'
+]);
+var_dump($result);
+
+// update the record with id = 10
+/* $result = $event->update(1, [
+    'name' => 'Concert',
+    'startdt' => '2021-01-10 10:20:00',
+    'enddt' => '2021-01-10 11:00:00'
+]);
+ */
+// delete the record with id = 10
+// $result = $event->delete(10);

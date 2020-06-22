@@ -1,10 +1,14 @@
 {
     "require": {
-        "vlucas/phpdotenv": ">=5.0"
+        "vlucas/phpdotenv": "^5",
+        "phpunit/phpunit": "^9"
     },
     "autoload": {
         "psr-4": {
             "Src\\": "src/"
-        }
+        },
+        "classmap": [
+            "src/"
+        ]
     }
 }
