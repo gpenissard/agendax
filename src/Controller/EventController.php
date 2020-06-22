@@ -30,10 +30,10 @@ class EventController {
                 };
                 break;
             case 'POST':
-                $response = $this->createEventFromRequest();
+                $response = $this->createEvent();
                 break;
             case 'PUT':
-                $response = $this->updateEventFromRequest($this->eventId);
+                $response = $this->updateEvent($this->eventId);
                 break;
             case 'DELETE':
                 $response = $this->deleteEvent($this->eventId);
@@ -67,10 +67,10 @@ class EventController {
         return $response;
     }
 
-    private function createEventFromRequest()
+    private function createEvent()
     {
         $input = (array) json_decode(file_get_contents('php://input'), TRUE);
-        if (! $this->validatePerson($input)) {
+        if (! $this->validateEventData($input)) {
             return $this->unprocessableEntityResponse();
         }
         $this->event->insert($input);
@@ -79,14 +79,14 @@ class EventController {
         return $response;
     }
 
-    private function updateEventFromRequest($id)
+    private function updateEvent($id)
     {
         $result = $this->event->find($id);
         if (! $result) {
             return $this->notFoundResponse();
         }
         $input = (array) json_decode(file_get_contents('php://input'), TRUE);
-        if (! $this->validatePerson($input)) {
+        if (! $this->validateEventData($input)) {
             return $this->unprocessableEntityResponse();
         }
         $this->event->update($id, $input);
@@ -107,12 +107,15 @@ class EventController {
         return $response;
     }
 
-    private function validatePerson($input)
+    private function validateEventData($input)
     {
-        if (! isset($input['firstname'])) {
+        if (! isset($input['name'])) {
             return false;
         }
-        if (! isset($input['lastname'])) {
+        if (! isset($input['startdt'])) {
+            return false;
+        }
+        if (! isset($input['enddt'])) {
             return false;
         }
         return true;
