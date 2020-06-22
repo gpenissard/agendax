@@ -1,0 +1,12 @@
+mysql -root -p
+
+CREATE DATABASE agendax CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'agendax_user'@'localhost' identified by 'agendax_password';
+GRANT ALL on agendax.* to 'agendax_user'@'localhost';
+CREATE TABLE agxevent (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    startdt DATETIME NOT NULL,
+    enddt DATETIME NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE=INNODB;
