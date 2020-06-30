@@ -2,10 +2,15 @@
 
 ## Présentation
 
-API back-end (sans interface HM) pour le TP P51, inspirée de 
-    * [Build a Simple REST API in PHP](https://developer.okta.com/blog/2019/03/08/simple-rest-api-php)
+Base de projet pour le TP 582-P51-MA, Prog. Inter. C/S, gr.17612
 
-## Composants
+Deux parties:
+1. Sous-dossier **api**:  API back-end (sans interface HM), inspirée de [Build a Simple REST API in PHP](https://developer.okta.com/blog/2019/03/08/simple-rest-api-php)
+1. Sous-dossier **fe**: Partie front-end
+
+## Back-end (API)
+
+### Composants
 
 * [Composer](https://getcomposer.org/) pour la gestion des packages externes.
 * Produits tiers utilisés:
@@ -14,11 +19,11 @@ API back-end (sans interface HM) pour le TP P51, inspirée de
 
 Après l'installation de Composer, lancez `composer install` depuis une fenêtre terminal (`composer update` pour d'éventuelles mises-à-jour).
 
-## Variabes d'environnement
+### Variabes d'environnement
 
 Adaptez votre propre version du fichier `.env` notamment pour y placez vos paramètres de DB.
 
-## Database
+### Database
 
 À remanier à votre goût.
 
@@ -28,7 +33,7 @@ Adaptez votre propre version du fichier `.env` notamment pour y placez vos param
 
 Fichier `dbseed.php` pour pré-remplir la base de données (fixture) et faire quelques appels directs à l'objet Model\Event
 
-## API
+### API
 
 Prise en charge par le controler Controller\EventController. 
 
@@ -48,7 +53,8 @@ API testée avec l'extension Chrome [Postman](https://chrome.google.com/webstore
 ![](doc/Postman_requete_get_event_1.png)
 ![](doc/Postman_requete_post_event_data.png)
 
-## .htaccess
+### .htaccess
 
 Il permet de rediriger toutes les requêtes vers public/index.php
 
+## Front-end
