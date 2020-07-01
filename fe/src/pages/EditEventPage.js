@@ -2,21 +2,27 @@
  * @module EditEventPage
  */
 import Page from "./Page.js";
+import AgxDate from "../utils/AgxDate";
 
 export default class EditEventPage extends Page {
 
-	constructor(eventId) {
-		super();
+	constructor(eventId, pageData = null) {
+		super(pageData);
 		this._eventId = eventId;
 	}
 
 	get title() {
-		let result = `Evénement n°${this._eventId}`;
+		let ev = this.data.event;
+		let result = `${ev.name}`;
 		return result;
 	}
 
 	get body() {
-		let result = `<p>Contenu page événement n°${this._eventId} - nom de l'événement<p>`;
+		let ev = this.data.event;
+		let debut = new AgxDate(ev.startdt); 
+		let fin = new AgxDate(ev.enddt); 
+		let result = `<div data-event-id="${ev.id}"><h2>Événement ${ev.name}</h2><p>Le ${debut.jour_fr} à ${debut.heure_fr} (durée: ${AgxDate.duree_fr(debut, fin)})</p></div><a href="/event">Retour événements</a>`;
+
 		return result;
 	}
 

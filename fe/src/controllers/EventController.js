@@ -29,12 +29,30 @@ export default class EventController extends Controller {
 	}
 
 	events() {
-		this._page = new EventsPage();
-		return true; // Sera converti en promesse
+		const URL_EVENTS = 'http://agendax.api/event';
+		console.log("Fetching events");
+		return fetch(URL_EVENTS)
+			.then(response=>response.json())
+			.then(respData=>{
+				console.log("Events fetched");
+				this.data = respData;
+				this._page = new EventsPage({
+					events: respData,
+				});
+			});
 	}	
 
-	editEvent(EventId) {
-		this._page = new EditEventPage(EventId);
-		return true; // Sera converti en promesse
+	editEvent(eventId) {
+		const URL_EVENT_ID = 'http://agendax.api/event/'+eventId;
+		console.log(`Fetching event n°${eventId}`);
+		return fetch(URL_EVENT_ID)
+			.then(response=>response.json())
+			.then(respData=>{
+				console.log(`Event n°${eventId} fetched`, respData);
+				this.data = respData;
+				this._page = new EditEventPage(eventId, {
+					event:respData[0],}
+				);
+			});
 	}
 }

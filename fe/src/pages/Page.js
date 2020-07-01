@@ -4,8 +4,17 @@
 
 export default class Page {
 
+	constructor(pageData = null) {
+		this._data = pageData;
+	}
+
+	get data() {
+		return this._data;
+	}
+
 	/**
 	 * À surcharger dans les descendants
+	 * Abstraite
 	 */
 	get title() {
 		throw new Error("Méthode abstraite");
@@ -20,7 +29,7 @@ export default class Page {
 	}
 	
 	/**
-	 * 
+	 * Assemble le HTML global de la page (n'affiche rien) 
 	 */
 	get contents() {
 		let result = `
@@ -38,16 +47,16 @@ export default class Page {
 	 * Méthode principale, appelée par l'objet App dans la promesse de chargement
 	 * Abstraite: À surcharger dans les descendants
 	 */
-	main() {
+/* 	main() {
 		throw new Error("Méthode abstraite");
 	}
-
+ */
 	/**
 	 * Chargement de la page et de ses données
 	 * Abstraite: À surcharger dans les descendants
 	 * @returns {Promise} La promesse résolue après chargement
 	 */
-	load() {
+/* 	load() {
 		throw new Error("Méthode abstraite");
 	}
-}
+ */}
