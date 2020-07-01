@@ -1,9 +1,13 @@
 /**
- * @module WeekPage
+ * @module EventsPage
  */
 import Page from "./Page.js";
 
-export default class WeekPage extends Page {
+export default class EventsPage extends Page {
+
+	constructor() {
+		super();
+	}
 
 	get title() {
 		let result = "Agenda: Semaine du 27 février";

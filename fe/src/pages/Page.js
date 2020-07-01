@@ -8,8 +8,7 @@ export default class Page {
 	 * À surcharger dans les descendants
 	 */
 	get title() {
-		let result = "Agendax";
-		return result;
+		throw new Error("Méthode abstraite");
 	}
 
 	/**
@@ -17,8 +16,7 @@ export default class Page {
 	 * Abstraite
 	 */
 	get body() {
-		let result = "";
-		return result;
+		throw new Error("Méthode abstraite");
 	}
 	
 	/**
@@ -36,11 +34,12 @@ export default class Page {
 		return result;
 	}
 
-	/**
+   /**
 	 * Méthode principale, appelée par l'objet App dans la promesse de chargement
 	 * Abstraite: À surcharger dans les descendants
 	 */
 	main() {
+		throw new Error("Méthode abstraite");
 	}
 
 	/**
@@ -49,5 +48,6 @@ export default class Page {
 	 * @returns {Promise} La promesse résolue après chargement
 	 */
 	load() {
+		throw new Error("Méthode abstraite");
 	}
 }

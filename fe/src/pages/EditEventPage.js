@@ -1,17 +1,22 @@
 /**
- * @module WeekPage
+ * @module EditEventPage
  */
 import Page from "./Page.js";
 
-export default class EventPage extends Page {
+export default class EditEventPage extends Page {
+
+	constructor(eventId) {
+		super();
+		this._eventId = eventId;
+	}
 
 	get title() {
-		let result = "Evénement";
+		let result = `Evénement n°${this._eventId}`;
 		return result;
 	}
 
 	get body() {
-		let result = `<p>Contenu page événement "nom de l'événement "<p>`;
+		let result = `<p>Contenu page événement n°${this._eventId} - nom de l'événement<p>`;
 		return result;
 	}
 
