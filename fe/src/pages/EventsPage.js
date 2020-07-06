@@ -3,7 +3,11 @@
  */
 import Page from "./Page.js";
 
-export default class EventsPage extends Page {
+ /**
+  * @class EventsPage
+  * Vue des événements
+  */
+ export default class EventsPage extends Page {
 
 	constructor(pageData = null) {
 		super(pageData);
@@ -26,22 +30,4 @@ export default class EventsPage extends Page {
 		return result;
 	}
 
-	/**
-	 * Méthode principale, appelée par l'objet App,  après le chargement
-	 */
-	main() {
-		super.main();
-	}
-
-	/**
-	 * Chargement de la page et de ses données
-	 * @returns {Promise} La promesse résolue après chargement
-	 */
-	load() {
-		return new Promise(resolve => {
-			document.addEventListener("DOMContentLoaded", () => {
-				resolve();
-			});
-		});
-	}
 }

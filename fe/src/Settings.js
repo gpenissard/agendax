@@ -1,6 +1,12 @@
 /**
  * @module Settings
  */
+
+/**
+ * @class Settings
+ * Gère les paramètres de l'application Agendax
+ * Les données membres ci-dessous sont montrées pour l'exemple
+ */
 export default class Settings {
 	constructor () {
 		this.vi = 145; // une donnée nombre

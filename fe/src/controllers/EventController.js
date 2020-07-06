@@ -6,12 +6,20 @@ import Controller from "./Controller";
 import EditEventPage from "../pages/EditEventPage";
 import EventsPage from "../pages/EventsPage";
 
+/**
+ * @class EventController
+ * Contrôleur des requêtes portant sur les événements
+ */
 export default class EventController extends Controller {
 	
 	constructor() {
 		super();
 	}
 
+	/**
+	 * Traite toutes les requêtes du contrôleur (fait le tri)
+	 * Utilise l'objet de routage
+	 */
 	process() {
 		const RE_EVENT = /^\/event\/?$/gi;
 		const RE_EVENT_ID = /^\/event\/(\d+)$/gi;
@@ -28,6 +36,9 @@ export default class EventController extends Controller {
 		return res;
 	}
 
+	/**
+	 * Traite la requête de listage des événement
+	 */
 	events() {
 		const URL_EVENTS = 'http://agendax.api/event';
 		console.log("Fetching events");
@@ -42,6 +53,9 @@ export default class EventController extends Controller {
 			});
 	}	
 
+	/**
+	 * Traite la requête de récupération d'un événement particulier
+	 */
 	editEvent(eventId) {
 		const URL_EVENT_ID = 'http://agendax.api/event/'+eventId;
 		console.log(`Fetching event n°${eventId}`);

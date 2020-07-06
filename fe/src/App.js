@@ -9,16 +9,22 @@ export default class App {
 	static _settings = new Settings();
 	static _controller = null; // Controller
 
+	/**
+	 * Getter settings
+	 */
 	static get settings() {
 		return this._settings;
 	}
 
+	/**
+	 * Getter controller
+	 */
 	static get controller() {
 		return this._controller;
 	}
 
 	/**
-	 * Méthode principale, appelée après le chargement de la page.
+	 * Méthode à exécuter après le chargement du DOM, réalisant l'affichage via le contrôleur.
 	 */
 	static domTime() {
 		console.log("Application chargée: Accès au DOM");
@@ -26,8 +32,10 @@ export default class App {
 	}
 
 	/**
-	 * Exécute une fonction donnée après le DOM chargé
-	 * @returns {Promise} La promesse résolue après chargement DOM
+	 * Réalise le chargement de l'application. Renvoie une promesse combinant les promesses suivantes:
+	 * 	- La promesse de traitement de la requête par le contrôleur
+	 *  - La promesse de chargement du DOM
+	 * @returns {Promise} La promesse combinant instanciation du contrôleur et chargement du DOM
 	 */
 	static load() {
 		console.log("paramètre vi:", App.settings.vi);
@@ -40,7 +48,7 @@ export default class App {
 		if (true /*window.location.pathname.match(/\/event/gi)*/){
 			this._controller = new EventController(); // Controller
 		}
-		// Promesses de chargement
+		// Promesses de traitement de la requête par le contrôleur
 		let controllerLoad = this.controller.process();
 		let DOMLoaded = new Promise(resolve => {
 			document.addEventListener("DOMContentLoaded", () => {

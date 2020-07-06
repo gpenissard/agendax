@@ -2,17 +2,25 @@
  * @module Page
  */
 
+ /**
+  * @class Page
+  * Gère la vue (code HTML) avec des données de page
+  */
 export default class Page {
 
 	constructor(pageData = null) {
 		this._data = pageData;
 	}
 
+	/**
+	 * Getter donnée de page
+	 */
 	get data() {
 		return this._data;
 	}
 
 	/**
+	 * Titre de page
 	 * À surcharger dans les descendants
 	 * Abstraite
 	 */
@@ -21,6 +29,7 @@ export default class Page {
 	}
 
 	/**
+	 * Code HTML du body
 	 * À surcharger dans les descendants
 	 * Abstraite
 	 */
@@ -42,21 +51,4 @@ export default class Page {
          </div>`;
 		return result;
 	}
-
-   /**
-	 * Méthode principale, appelée par l'objet App dans la promesse de chargement
-	 * Abstraite: À surcharger dans les descendants
-	 */
-/* 	main() {
-		throw new Error("Méthode abstraite");
-	}
- */
-	/**
-	 * Chargement de la page et de ses données
-	 * Abstraite: À surcharger dans les descendants
-	 * @returns {Promise} La promesse résolue après chargement
-	 */
-/* 	load() {
-		throw new Error("Méthode abstraite");
-	}
- */}
+}
