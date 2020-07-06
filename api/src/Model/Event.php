@@ -89,6 +89,7 @@ class Event {
                 'startdt'  => $input['startdt'],
                 'enddt' => $input['enddt'],
             ));
+            var_dump($statement);
             return $statement->rowCount();
         } catch (\PDOException $e) {
             exit($e->getMessage());

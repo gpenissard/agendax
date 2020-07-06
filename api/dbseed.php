@@ -40,19 +40,22 @@ $result = $event->find(1);
 var_dump($result);
 
 // insert a new record
-$result = $event->insert([
+/* $result = $event->insert([
     'name' => 'Concert',
     'startdt' => '2021-01-10 10:20:00',
     'enddt' => '2021-01-10 11:00:00'
 ]);
 var_dump($result);
+*/
 
-// update the record with id = 10
-/* $result = $event->update(1, [
-    'name' => 'Concert',
-    'startdt' => '2021-01-10 10:20:00',
-    'enddt' => '2021-01-10 11:00:00'
+// update the record with id = 5
+echo "---UPDATE---", PHP_EOL;
+$result = $event->update(5, [
+    'name' => 'Événement surprise (Changement horaire 2)',
+    "startdt" => "2020-07-01 13:30:00",
+    "enddt" => "2020-07-01 14:30:00"
 ]);
- */
+var_dump($result);
+
 // delete the record with id = 10
 // $result = $event->delete(10);
