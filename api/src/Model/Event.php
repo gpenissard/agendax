@@ -77,7 +77,7 @@ class Event {
             SET 
                 name = :name,
                 startdt  = :startdt,
-                enddt = :enddt,
+                enddt = :enddt
             WHERE id = :id;
         ";
 
@@ -89,7 +89,7 @@ class Event {
                 'startdt'  => $input['startdt'],
                 'enddt' => $input['enddt'],
             ));
-            var_dump($statement);
+            //var_dump($statement);
             return $statement->rowCount();
         } catch (\PDOException $e) {
             exit($e->getMessage());

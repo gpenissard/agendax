@@ -51,7 +51,7 @@ var_dump($result);
 // update the record with id = 5
 echo "---UPDATE---", PHP_EOL;
 $result = $event->update(5, [
-    'name' => 'Événement surprise (Changement horaire 2)',
+    'name' => 'Événement surprise (Changement horaire 3)',
     "startdt" => "2020-07-01 13:30:00",
     "enddt" => "2020-07-01 14:30:00"
 ]);
