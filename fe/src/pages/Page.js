@@ -38,6 +38,15 @@ export default class Page {
 	}
 	
 	/**
+	 * Script à ajouter à la fin
+	 * À surcharger dans les descendants
+	 * Abstraite
+	 */
+	get script() {
+		throw new Error("Méthode abstraite");
+	}
+
+	/**
 	 * Assemble le HTML global de la page (n'affiche rien) 
 	 */
 	get contents() {
@@ -48,7 +57,8 @@ export default class Page {
             </header>
             <!-- Page specific content -->
             <div id='page-content'>${this.body}</div>
-         </div>`;
+		</div>`;
 		return result;
 	}
+
 }

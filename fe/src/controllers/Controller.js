@@ -3,7 +3,7 @@
  */
 
 export default class Controller {
-	
+
 	constructor() {
 		this._page = null; // L'objet Page, gérant la vue et es données de vue et instancié dans les descendants
 		this._data = null; // Des données de requête pour la page. Rempli par les controllers descendants au traitement (process)
@@ -52,8 +52,15 @@ export default class Controller {
 	displayContents() {
 		// Insertion contenu de la page dans le DOM 
 		// N'est appelée que dans la phase domTime de l'App
-	   document.getElementById('app').innerHTML = this.page.contents;
-	   document.title = 'Mon App:' + this.page.title;
+		document.getElementById('app').innerHTML = this.page.contents;
+		document.title = 'Mon App:' + this.page.title;
+		// Ajout éventuel script final
+		if (this.page.script.length > 0) {
+			let newScript = document.createElement("script");
+			newScript.setAttribute("type" , "module");
+			let statements = document.createTextNode(this.page.script);
+			newScript.append(statements);
+			document.body.appendChild(newScript);
+		}
 	}
-
 }

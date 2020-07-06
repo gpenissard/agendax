@@ -30,10 +30,8 @@ import AgxDate from "../utils/AgxDate";
 		return result;
 	}
 
-	/**
-	 * Ajoute les listeners de la page
-	 */
-	get addListeners() {
+	get script() {
+		return "";
 	}
 
 }

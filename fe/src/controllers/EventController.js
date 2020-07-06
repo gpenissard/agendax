@@ -68,7 +68,8 @@ export default class EventController extends Controller {
 				console.log(`Event n°${eventId} fetched`, respData);
 				this.data = respData;
 				this._page = new EditEventPage(eventId, {
-					event:respData[0],}
+					event:respData[0]
+				}
 				);
 			});
 	}
@@ -76,18 +77,20 @@ export default class EventController extends Controller {
 	/**
 	 * Traite la requête de récupération d'un événement particulier
 	 */
-	addEvent() {
+	addEvent(data = null) {
 		const URL_EVENT_ID = 'http://agendax.api/event/';
 		console.log(`Posting new event`);
-		let data = JSON.stringify({
-			name:"Nouvel événement",
-			startdt:"2020-07-01 08:00:00",
-			enddt:"2020-07-01 09:45:00"
-		});
+		if (data === null) {
+			data = {
+				name:"Nouvel événement",
+				startdt:"2020-07-01 08:00:00",
+				enddt:"2020-07-01 09:45:00"
+			};
+		}
 		console.log(data);
 		return fetch(URL_EVENT_ID, {
 				method: "POST",
-				body: data,
+				body: JSON.stringify(data),
 			})
 			.then(response=>response.json())
 			.then(respData=>{
