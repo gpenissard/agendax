@@ -75,7 +75,7 @@ class EventController {
         }
         $this->event->insert($input);
         $response['status_code_header'] = 'HTTP/1.1 201 Created';
-        $response['body'] = null;
+        $response['body'] = '{}';
         return $response;
     }
 

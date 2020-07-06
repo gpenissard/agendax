@@ -40,6 +40,13 @@ export default class Controller {
 	}
 
 	/**
+	 * Redirige vers une autre ULR
+	 */
+	redirect() {
+		window.location.href = "/event";
+	}
+
+	/**
 	 * Affiche les contenus dans la page en utilisant l'objet Page (propriété this.page)
 	 */
 	displayContents() {

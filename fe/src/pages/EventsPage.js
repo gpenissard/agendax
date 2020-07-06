@@ -27,6 +27,7 @@ import Page from "./Page.js";
 			result += `<li data-event-id="${event.id}"><a href="/event/${event.id}">${event.name}</a></li>`;
 		}
 		result += `</ul>`;
+		result += `<br><a href="/event/add">Ajouter event</a>`;
 		return result;
 	}
 
