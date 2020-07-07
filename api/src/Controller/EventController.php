@@ -91,7 +91,7 @@ class EventController {
         }
         $this->event->update($id, $input);
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
-        $response['body'] = '{":-)"}';
+        $response['body'] = '{}';
         return $response;
     }
 
@@ -103,7 +103,7 @@ class EventController {
         }
         $this->event->delete($id);
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
-        $response['body'] = null;
+        $response['body'] = '{}';
         return $response;
     }
 

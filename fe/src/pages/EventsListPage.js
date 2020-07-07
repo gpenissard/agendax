@@ -4,10 +4,10 @@
 import Page from "./Page.js";
 
  /**
-  * @class EventsPage
+  * @class AllEventsPage
   * Vue des événements
   */
- export default class EventsPage extends Page {
+ export default class EventsListPage extends Page {
 
 	constructor(pageData = null) {
 		super(pageData);
@@ -34,7 +34,7 @@ import Page from "./Page.js";
 
 	get script() {
 		let result = `
-		console.log("test");
+		//console.log("test");
 		import App from "/src/App.js";
 		document.getElementById("add_event").addEventListener("click", ()=>{
 				console.log("click pour ajout événement");
