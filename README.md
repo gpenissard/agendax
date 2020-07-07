@@ -10,6 +10,10 @@ Deux parties:
 
 ## Back-end (API)
 
+Travail inspiré de:
+* [Build a Simple REST API in PHP](https://developer.okta.com/blog/2019/03/08/simple-rest-api-php)
+* [How To Create A Simple REST API in PHP? Step By Step Guide!](https://www.codeofaninja.com/2017/02/create-simple-rest-api-in-php.html)
+
 ### Composants
 
 * [Composer](https://getcomposer.org/) pour la gestion des packages externes.
@@ -57,4 +61,11 @@ API testée avec l'extension Chrome [Postman](https://chrome.google.com/webstore
 
 Il permet de rediriger toutes les requêtes vers public/index.php
 
-## Front-end
+## Front-end (fe)
+
+Inspiré de:
+* [AJAX CRUD Tutorial Using JavaScript, JSON and PHP – Step by Step Guide!](https://www.codeofaninja.com/2015/06/php-crud-with-ajax-and-oop.html)
+
+
+
+
