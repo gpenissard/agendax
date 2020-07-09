@@ -19,6 +19,8 @@ class DbConn {
                 $user,
                 $pass
             );
+            $this->dbConn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            //echo "connection successful";
         } catch (\PDOException $e) {
             exit($e->getMessage());
         }

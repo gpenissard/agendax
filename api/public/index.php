@@ -2,8 +2,6 @@
 require "../bootstrap.php";
 use Src\Controller\EventController;
 
-const EVENT_PATH_INDEX = 1;
-
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
@@ -22,8 +20,8 @@ if ($requestMethod === "OPTIONS") {
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode( '/', $uri );
-
-// all of our endpoints start with /person
+const EVENT_PATH_INDEX = 3;
+// all of our endpoints start with /event
 // everything else results in a 404 Not Found
 if ($uri[EVENT_PATH_INDEX] !== 'event') {
     header("HTTP/1.1 404 Not Found");

@@ -5,7 +5,7 @@ use Src\Model\Event;
 require 'bootstrap.php';
 
 $statement = <<<EOS
-    CREATE TABLE IF NOT EXISTS agendax.agxevent (
+    CREATE TABLE IF NOT EXISTS agxevent (
         id INT(11) NOT NULL AUTO_INCREMENT,
         name VARCHAR(100) NOT NULL,
         startdt DATETIME NOT NULL,
