@@ -45,17 +45,19 @@ Voici les requêtes implantées:
 
 * `GET /event`: Renvoie tous les événements
 * `GET /event/{id}`: Renvoie un événement
-* `POST /event`: Ajoute un événement
-* `PUT /event/{id}`: Met à jour un événement
+* `POST /event`: Ajoute un événement. Les données doivent être au format
+```
+{
+"name":"GPTest2118",
+"startdt":"2020-07-01 10:00:00",
+"enddt":"2020-07-01 11:30:00",
+"category":"Job"
+}
+```    
+* `PUT /event/{id}`: Met à jour un événement. Même format de données que POST /event
 * `DELETE /event/{id}`: Supprime un événement
 
 API testée avec l'extension Chrome [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=fr). Voir les copies d'écran dans le répertoire doc.
-
-![](doc/Postman_creer_requete.png)
-![](doc/Postman_requete_delete_event_4.png)
-![](doc/Postman_requete_get_event.png)
-![](doc/Postman_requete_get_event_1.png)
-![](doc/Postman_requete_post_event_data.png)
 
 ### .htaccess
 
