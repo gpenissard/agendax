@@ -16,7 +16,7 @@ $statement = <<<EOS
         name VARCHAR(500) NOT NULL,
         startdt DATETIME NOT NULL,
         enddt DATETIME NOT NULL,
-        category VARCHAR(100) NOT NULL,
+        category VARCHAR(100) NOT NULL DEFAULT '',
         PRIMARY KEY (id)
     ) ENGINE=InnoDB;
 

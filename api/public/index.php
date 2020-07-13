@@ -20,18 +20,18 @@ if ($requestMethod === "OPTIONS") {
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode( '/', $uri );
-const EVENT_PATH_INDEX = 3;
+$eventPathIndex = $_ENV['EVENT_PATH_INDEX'];
 // all of our endpoints start with /event
 // everything else results in a 404 Not Found
-if ($uri[EVENT_PATH_INDEX] !== 'event') {
+if ($uri[$eventPathIndex] !== 'event') {
     header("HTTP/1.1 404 Not Found");
     exit();
 }
 
 // the user id is, of course, optional and must be a number:
 $eventId = null;
-if (isset($uri[EVENT_PATH_INDEX + 1])) {
-    $eventId = (int) $uri[EVENT_PATH_INDEX + 1];
+if (isset($uri[$eventPathIndex + 1])) {
+    $eventId = (int) $uri[$eventPathIndex + 1];
 }
 
 
