@@ -63,11 +63,15 @@ API testée avec l'extension Chrome [Postman](https://chrome.google.com/webstore
 
 Il permet de rediriger toutes les requêtes vers public/index.php
 
-## Front-end (fe)
+## fe (front-end)
 
 Inspiré de:
 * [AJAX CRUD Tutorial Using JavaScript, JSON and PHP – Step by Step Guide!](https://www.codeofaninja.com/2015/06/php-crud-with-ajax-and-oop.html)
 
+
+## Tinyfe (front-end)
+
+Un script de test des requêtes Ajax avec jQuery (affichage sommaire)
 
 
 
