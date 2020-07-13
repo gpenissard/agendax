@@ -118,6 +118,9 @@ class EventController {
         if (! isset($input['enddt'])) {
             return false;
         }
+        if (! isset($input['category'])) {
+            return false;
+        }
         return true;
     }
 

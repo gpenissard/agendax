@@ -4,20 +4,27 @@ use Src\Model\Event;
 
 require 'bootstrap.php';
 
+//Mise en place DB
+//mysql -root -p 
+//CREATE DATABASE agendax CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+//CREATE USER 'agendax_user'@'localhost' identified by 'agendax_password';
+//GRANT ALL on agendax.* to 'agendax_user'@'localhost';
+
 $statement = <<<EOS
     CREATE TABLE IF NOT EXISTS agxevent (
         id INT(11) NOT NULL AUTO_INCREMENT,
-        name VARCHAR(100) NOT NULL,
+        name VARCHAR(500) NOT NULL,
         startdt DATETIME NOT NULL,
         enddt DATETIME NOT NULL,
+        category VARCHAR(100) NOT NULL,
         PRIMARY KEY (id)
     ) ENGINE=InnoDB;
 
     INSERT INTO agxevent
         (id, name, startdt, enddt)
     VALUES
-    (1, 'Classe P51', '2020-06-20 10:00:00', '2020-06-20 11:00:00'),
-    (2, 'Interview JSLabs', '2020-06-25 14:30:00', '2020-06-25 16:00:00');
+    (1, 'Classe P51', '2020-06-20 10:00:00', '2020-06-20 11:00:00', ''),
+    (2, 'Interview JSLabs', '2020-06-25 14:30:00', '2020-06-25 16:00:00', '');
 EOS;
 
 try {

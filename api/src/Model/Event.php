@@ -14,7 +14,7 @@ class Event {
     {
         $statement = "
             SELECT 
-                id, name, startdt, enddt
+                id, name, startdt, enddt, category
             FROM
                 agxevent;
         ";
@@ -32,7 +32,7 @@ class Event {
     {
         $statement = "
             SELECT 
-                id, name, startdt, enddt
+                id, name, startdt, enddt, category
             FROM
                 agxevent
             WHERE id = ?;
@@ -52,9 +52,9 @@ class Event {
     {
         $statement = "
             INSERT INTO agxevent 
-                (name, startdt, enddt)
+                (name, startdt, enddt, category)
             VALUES
-                (:name, :startdt, :enddt);
+                (:name, :startdt, :enddt, :category);
         ";
 
         try {
@@ -63,6 +63,7 @@ class Event {
                 'name' => $input['name'],
                 'startdt'  => $input['startdt'],
                 'enddt' => $input['enddt'],
+                'category' => $input['category'],
             ));
             return $statement->rowCount();
         } catch (\PDOException $e) {
@@ -77,7 +78,8 @@ class Event {
             SET 
                 name = :name,
                 startdt  = :startdt,
-                enddt = :enddt
+                enddt = :enddt,
+                category = :category
             WHERE id = :id;
         ";
 
@@ -88,6 +90,7 @@ class Event {
                 'name' => $input['name'],
                 'startdt'  => $input['startdt'],
                 'enddt' => $input['enddt'],
+                'category' => $input['category'],
             ));
             //var_dump($statement);
             return $statement->rowCount();
